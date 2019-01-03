@@ -1,0 +1,32 @@
+{
+  "name": "babel-plugin-transform-css-string",
+  "version": "0.0.1",
+  "description": "Transform strings containing CSS found in javascript files and treat them like any other CSS with postcss.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --copy-files --out-dir lib",
+    "prepublish": "npm run build"
+  },
+  "author": "Dominik Richter <dominik.richter@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "postcss",
+    "babel",
+    "babel-transform"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "cssnano": "^4.1.8",
+    "postcss": "^6.0.7",
+    "postcss-preset-env": "^6.5.0"
+  },
+  "peerDependencies": {
+    "postcss": "^6.0.6"
+  },
+  "dependencies": {
+    "postcss-load-config": "^1.1.0"
+  }
+}
