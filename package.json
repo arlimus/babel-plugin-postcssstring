@@ -1,7 +1,7 @@
 {
-  "name": "babel-plugin-transform-css-string",
+  "name": "babel-plugin-postcssstring",
   "version": "0.0.1",
-  "description": "Transform strings containing CSS found in javascript files and treat them like any other CSS with postcss.",
+  "description": "Transform strings containing CSS found in javascript files with PostCSS.",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
