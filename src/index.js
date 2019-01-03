@@ -9,16 +9,24 @@ import path from 'path';
 const nodeExecutable = process.argv[0];
 const postcssify = path.join(__dirname, 'postcssify.js');
 
+const cache = {}
+
+function transformCss(css) {
+  if(cache[css] != null) return cache[css];
+
+  const execArgs = [postcssify];
+  const result = execFileSync(nodeExecutable, execArgs, {
+    env: process.env, // eslint-disable-line no-process-env
+    input: css,
+  }).toString();
+  cache[css] = result;
+  return result;
+}
+
 function transform(quasis) {
   ["raw", "cooked"].forEach((type) => {
     quasis.forEach((element) => {
-      const css = element.value[type];
-      const execArgs = [postcssify];
-      const result = execFileSync(nodeExecutable, execArgs, {
-        env: process.env, // eslint-disable-line no-process-env
-        input: css,
-      }).toString();
-      element.value[type] = result;
+      element.value[type] = transformCss(element.value[type]);
     });
   });  
 }
